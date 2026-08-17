@@ -6,6 +6,31 @@
     <title>Blog</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>My Blog</h1>
+        <a href="/new" id="newPostBtn">New Post</a>
+        <ul id="postsList">
+            <% posts.forEach(post=> { %>
+                <h2>
+                    <%= post.title %>
+                </h2>
+                <small>
+                    <%= post.date %>
+                </small>
+                <p>
+                    <%= post.content %>
+                </p>
+                <small>
+                    By: <%= post.author %>
+                </small>
+                <a href="/edit/<%= post.id %>" class="edit">
+                    Edit
+                </a>
+                <a href="/api/posts/delete/<%= post.id %>" class="delete">
+                    Delete
+                </a>
+            <% }); %>
+        </ul>
+    </div>
 </body>
 </html>
