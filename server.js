@@ -44,7 +44,7 @@ app.get("/edit/:id", async (req, res) => {
 //Create a new post
 app.post("/api/posts", async (req, res) => {
     try {
-        const response = await axios.poist(`${API_URL}/posts`, req.body);
+        const response = await axios.post(`${API_URL}/posts`, req.body);
         console.log(response.data);
         res.redirect("/");
     } catch (error) {
@@ -53,7 +53,7 @@ app.post("/api/posts", async (req, res) => {
 });
 
 //Partially update a post
-app.post("/api/posts/:id", (req, res) => {
+app.post("/api/posts/:id", async (req, res) => {
     console.log("called");
     try {
         const response = await axios.patch(
